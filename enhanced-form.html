@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Web Page with Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .media-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .media-container video, .media-container audio {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Form Styling */
+        form {
+            display: grid;
+            gap: 15px;
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        legend {
+            font-weight: bold;
+            color: #0056b3;
+            padding: 0 10px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="date"],
+        input[type="url"],
+        textarea,
+        select {
+            width: calc(100% - 22px); /* Account for padding and border */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+        button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        input:invalid:focus {
+            border-color: #dc3545; /* Red border for invalid input on focus */
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+        }
+        input:valid:focus {
+            border-color: #28a745; /* Green border for valid input on focus */
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+        }
+        /* Specific validation styling feedback for user */
+        input:required:invalid {
+            border-color: #dc3545;
+        }
+        input:required:valid {
+            border-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Enhanced Web Page</h1>
+        <p>Showcasing HTML5 capabilities: lists, tables, media, and a comprehensive form.</p>
+    </header>
+
+    <main>
+        <section id="lists-section">
+            <h2>Our Favorite Programming Languages (Unordered List)</h2>
+            <ul>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>C#</li>
+                <li>Go</li>
+            </ul>
+
+            <h2>Steps to Build a Website (Ordered List)</h2>
+            <ol>
+                <li>Plan your website's purpose and content.</li>
+                <li>Design the layout and user interface.</li>
+                <li>Write the HTML structure.</li>
+                <li>Apply CSS for styling.</li>
+                <li>Add interactivity with JavaScript.</li>
+                <li>Deploy your website to a server.</li>
+                <li>Maintain and update regularly.</li>
+            </ol>
+        </section>
+
+        <section id="tables-section">
+            <h2>Project Progress Tracker (Table)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Status</th>
+                        <th>Due Date</th>
+                        <th>Progress (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Website Redesign</td>
+                        <td>In Progress</td>
+                        <td>2025-09-30</td>
+                        <td>65</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile App Development</td>
+                        <td>Planned</td>
+                        <td>2026-01-15</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Database Optimization</td>
+                        <td>Completed</td>
+                        <td>2025-07-20</td>
+                        <td>100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="media-section">
+            <h2>Multimedia Showcase</h2>
+            <div class="media-container">
+                <h3>A Relaxing Beach Scene (Video)</h3>
+                <video controls autoplay muted loop>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>
+
+                <h3>Calm Ocean Waves (Audio)</h3>
+                <audio controls>
+                    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+                <h3>An Informative Image</h3>
+                <img src="https://via.placeholder.com/600x300?text=Placeholder+Image" alt="A placeholder image for demonstration purposes">
+            </div>
+        </section>
+
+        <section id="form-section">
+            <h2>Contact Us (Complete HTML5 Form)</h2>
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="form-group">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="e.g., +1234567890" pattern="^\+?[0-9]{7,15}$" title="Phone number must be 7-15 digits, optionally starting with '+'" autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Choose a Password:</label>
+                        <input type="password" id="password" name="password" minlength="8" required>
+                        <small>Password must be at least 8 characters long.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" max="2007-01-01" required>
+                        <small>You must be at least 18 years old.</small>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Account Preferences</legend>
+                    <div class="form-group">
+                        <label for="username">Preferred Username:</label>
+                        <input type="text" id="username" name="username" pattern="[a-zA-Z0-9_]{3,16}" title="Username must be 3-16 characters long and contain only letters, numbers, or underscores." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profileURL">Your Website/Portfolio URL:</label>
+                        <input type="url" id="profileURL" name="profileURL" placeholder="https://www.yourwebsite.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Years of Experience:</label>
+                        <input type="number" id="experience" name="experience" min="0" max="50" step="1" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsletter">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked> Subscribe to Newsletter
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Contact Method:</label><br>
+                        <input type="radio" id="contactEmail" name="contactMethod" value="email" required>
+                        <label for="contactEmail">Email</label><br>
+                        <input type="radio" id="contactPhone" name="contactMethod" value="phone">
+                        <label for="contactPhone">Phone</label><br>
+                        <input type="radio" id="contactSMS" name="contactMethod" value="sms">
+                        <label for="contactSMS">SMS</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your Message</legend>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" placeholder="Brief subject" maxlength="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." minlength="10" required></textarea>
+                        <small>Message must be at least 10 characters long.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedbackDate">Today's Date (Read-only):</label>
+                        <input type="date" id="feedbackDate" name="feedbackDate" value="2025-08-05" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="source">How did you hear about us?</label>
+                        <select id="source" name="source" required>
+                            <option value="">--Please choose an option--</option>
+                            <option value="search_engine">Search Engine</option>
+                            <option value="social_media">Social Media</option>
+                            <option value="friend">Friend/Colleague</option>
+                            <option value="advertisement">Advertisement</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <button type="submit">Submit Form</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p style="text-align: center; margin-top: 30px; padding: 15px; background-color: #333; color: white; border-radius: 8px;">
+            &copy; 2025 Enhanced Web Page. All rights reserved.
+        </p>
+    </footer>
+</body>
+</html>
